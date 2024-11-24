@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" type="module"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 90vh;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #6a11cb, #2575fc);
+            color: #fff;
+        }
+
+        ::selection {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: #000;
+        }
+
+        /* Heading Style */
+        h1 {
+            margin: 20px 0;
+            font-size: 36px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        h1:hover {
+            color: #ffd700; /* Gold color on hover */
+            transform: scale(1.1); /* Slight zoom effect */
+        }
+
+        #message-container {
+            border: 2px solid #fff;
+            border-radius: 8px;
+            flex-grow: 1;
+            overflow-y: auto;
+            margin: 10px;
+            width: 100%;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #message-container div {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            word-wrap: break-word;
+            color: #333;
+            cursor: pointer; /* Cursor for hover effect */
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        #message-container div:hover {
+            transform: scale(1.02); /* Slight zoom effect */
+            background-color: rgba(106, 17, 203, 0.8); /* Highlight color */
+            color: #fff;
+        }
+
+        #message-container div:nth-child(2n) {
+            background-color: rgba(0, 183, 255, 0.8);
+            color: #fff;
+        }
+
+        #message-container div:nth-child(2n):hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+        form label {
+            font-size: 14px;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        form input, form button {
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            outline: none;
+        }
+
+        form input {
+            flex: 1;
+            max-width: 200px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            border: 1px solid #ccc;
+            transition: all 0.3s ease;
+        }
+
+        form input:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 8px rgba(106, 17, 203, 0.8);
+        }
+
+        form button {
+            background-color: #6a11cb;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #2575fc;
+            transform: translateY(-2px); /* Slight lift on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
+        }
+
+        #send-button {
+            flex: 0 0 auto;
+            width: auto;
+        }
+
+        #room-button {
+            flex: 0 0 auto;
+            width: auto;
+        }
+    </style>
+    <title>TinyBook</title>
+</head>
+<body>
+    <h1>TinyBook</h1>
+    <div id="message-container"></div>
+    <form id="form">
+        <label for="message-input">Message</label>
+        <input type="text" id="message-input" placeholder="Type your message here">
+        <button type="submit" id="send-button">Send</button>
+        <label for="room-input">Room</label>
+        <input type="text" id="room-input" placeholder="Enter room name">
+        <button type="button" id="room-button">Join</button>
+    </form>
+</body>
+</html>
